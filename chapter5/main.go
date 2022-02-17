@@ -134,7 +134,7 @@ func main() {
 	/*For convenience, we are also allowed to omit low, high, or even both low and high. arr[0:] is the same as arr[0:len(arr)], arr[:5] is the same as arr[0:5], and
 	  arr[:] is the same as arr[0:len(arr)].*/
 
-	xArr = arr[0:len(arr)]
+	//xArr = arr[0:len(arr)]
 	fmt.Println(xArr)
 
 	xArr = arr[:]
@@ -142,4 +142,18 @@ func main() {
 
 	//In addition to the indexing operator, Go includes two built-in functions to assist with slices: append and copy
 
+	//APPEND
+	/*append adds elements onto the end of a slice. if there's sufficient capacity in the underlying array, the element is placed after the last element and the length
+	is incremented. However, if there is not sufficient capacity, a new array is created, all of the existing elements are copied over, the new element is added onto the
+	end, and the new slice is returned.*/
+
+	//The definition of append can be a bit confusing but it's easier to grasp once you see it used. Here is an exampler:
+
+	slice1 := []int{1, 2, 3}
+	slice2 := append(slice1, 4, 5)
+	fmt.Println(slice1, slice2)
+	fmt.Println(len(slice1), len(slice2))
+
+	/*After running this program, slice1 has [1,2,3] and slice2 has [1,2,3,4,5]. append creates a new slice by taking an existing slice (the first argument)
+	and appending all the following arguments to it*/
 }
