@@ -1,0 +1,33 @@
+1.-git remote add origin { dirección con llave ssh de github} 
+//esta instrucción indica a git que le agregaremos 
+un origen remoto de nuestros archivos
+
+2.-git remote -v
+//indica el origin para realizar fetch y push (traer y enviar)
+
+3.-git push origin master // git push origin master:main 
+// indica a git que debe enviar al origen la rama master  (main en github desde el 2020)
+//para realizar un push primero debes hacer un pull ya que puede existir un conflicto
+porque hay trabajo en el repositorio remoto que no se encuentra en el repositorio local.
+//se puede realizar un git fetch y git merge o directamente git pull. 
+//actualmente se debe utilizar git push origin master:main ya que la rama principal cambió en github
+esto le indica a git que debe enviar el repositorio local hacia el origen remoto a la rama main
+ya que de usar el primer comando se estaria enviando el repositorio local a la rama master remota 
+la cual no existe y Github interpreta como la creación de una nueva rama concluyendo en una rama main y master remota 
+
+4.- git pull origin main --allow-unrelated-histories
+//Al crea un repositorio local y uno remoto al inicio de un proyecto
+debido a que existen 2 historias diferentes de proyectos, una en github y otra en git.
+git se niega a fusionar hisorias no relacionadas para lo cual se utiliza el comando
+allow unrelated histories, en este caso fusionamos ambas historias remota y local.
+
+6.- git remote set-url origin { dirección remote de github // html o SSH}
+// comando para realizar un cambio de la dirección origen
+
+7.-  git log --all --graph --decorate --oneline
+// comando para graficar en consola historial de commits de forma simplificada ( se puede reducir a un alias)
+
+8.- alias nombre="git log --all --graph --decorate --oneline"
+// comando para simplificar comandos, en este caso reemplazamos el comando "git log --all --graph --decorate --oneline"
+por nombre, al declarar nombre en git se ejecutara como un atajo el historial grafico de commits (nombre es un generico
+y puede ser nombrado de cualquier otra forma)
