@@ -156,4 +156,38 @@ func main() {
 
 	/*After running this program, slice1 has [1,2,3] and slice2 has [1,2,3,4,5]. append creates a new slice by taking an existing slice (the first argument)
 	and appending all the following arguments to it*/
+
+	//COPY
+	/* copy takes two arguments: dst and src. All of the entries in src are copied into dst overwriting whatever is there. If the lengths of the two slices are not the same, the
+	smaller of the two will be used*/
+
+	fmt.Println("Copy Chapter5") //just for see in console
+	sliceCopy1 := []int{1, 2, 3}
+	sliceCopy2 := make([]int, 2)
+	copy(sliceCopy2, sliceCopy1) // this the same that copy(dst, src) so the content in src will be copied into dst
+	fmt.Println(sliceCopy1, sliceCopy2)
+	/* After running this program slice1 has [1,2,3] and slice2 has [1,2]. The contents of slice1 are copied into slice2, but because slice2 has room for only two elements,
+	only the first two elements of slice1 are copied */
+
+	/* Slices are typically used to represent lists of items, particularly when you need to access the nth item quickly—for example, player #33, or the 10th most popular search query.
+	But what if you want to look up an entry by something other than integer? What if you wanted to look up a player on a team by last name? Go has another built in type that can do this
+	a "map" */
+
+	//MAPS
+	/* A map is an unordered collection of key-value pairs (maps are also sometimes called associative arrays, hash tables, or dictionaries). Maps are used to look up a value by its
+	associated key. here's an example of a map in Go:*/
+	fmt.Println("Maps")
+	var xMapExample map[string]int  // to statement a map we have to use keyword "map", If you were to read this out loud, you would say "xMapExample" is a map	of strings to ints.
+	xMapExample["key"] = 10         // Like arrays and slice, we can access to a map using brackets.
+	fmt.Println(xMapExample["key"]) /* at moment to print this. we get an error panic: assignment to entry in nil map
+
+	goroutine 1 [running]:
+	main.main()
+			C:/Users/Alexg/go/src/golang-book/chapter5/main.go:181 +0xaff
+	exit status 2*/
+
+	/*Up until now, we have only seen compile-time errors. This is an example of a runtime error
+	As the name would imply, runtime errors happen when you run the program, while compile-time errors happen when you try to compile the program*/
+	//The problem with our program is that maps have to be initialized before they can be used. We should have written this
+
 }
